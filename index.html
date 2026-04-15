@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patrick Kennelly | Chicago Multifamily Investment Expert | Interra Realty</title>
+  <meta name="description" content="Patrick Kennelly – Managing Partner at Interra Realty. Chicago's leading multifamily & mixed-use investment broker. Call 312.724.7011">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:       #0D2137;
+      --navy-light: #183352;
+      --gold:       #C9A84C;
+      --gold-light: #dfc070;
+      --off-white:  #F7F6F2;
+      --text:       #2d3748;
+      --muted:      #718096;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 200;
+      background: rgba(13,33,55,0.96);
+      backdrop-filter: blur(12px);
+      padding: 14px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-brand-name { color: #fff; font-size: 17px; font-weight: 700; letter-spacing: 0.08em; }
+    .nav-brand-divider { width: 1px; height: 22px; background: rgba(255,255,255,0.2); }
+    .nav-brand-sub { color: var(--gold); font-size: 13px; font-weight: 500; }
+    .nav-phone {
+      color: var(--gold); font-size: 17px; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-phone:hover { color: var(--gold-light); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #081625 0%, #0D2137 45%, #152c47 100%);
+      display: flex; align-items: center;
+      padding: 110px 48px 72px;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1180px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center;
+      position: relative; z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 20px; margin-bottom: 28px;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 4.5vw, 66px);
+      color: #fff; line-height: 1.12; margin-bottom: 22px;
+    }
+    .hero-title em { color: var(--gold); font-style: normal; }
+
+    .hero-sub {
+      font-size: 18px; color: rgba(255,255,255,0.68);
+      line-height: 1.75; margin-bottom: 40px; max-width: 520px;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 15px; font-weight: 700; padding: 15px 30px;
+      border-radius: 8px; text-decoration: none; transition: all 0.22s; cursor: pointer;
+      border: none; font-family: inherit;
+    }
+    .btn-gold {
+      background: var(--gold); color: var(--navy);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+    }
+    .btn-gold:hover {
+      background: var(--gold-light); transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,168,76,0.45);
+    }
+    .btn-outline {
+      background: transparent; color: #fff;
+      border: 2px solid rgba(255,255,255,0.35);
+    }
+    .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .hero-trust {
+      display: flex; gap: 28px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 13px; }
+    .trust-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* Photo card */
+    .hero-photo-wrap { display: flex; justify-content: center; }
+    .photo-card {
+      position: relative; width: 380px;
+      border-radius: 24px; overflow: visible;
+    }
+    .photo-img-wrap {
+      border-radius: 24px; overflow: hidden;
+      border: 3px solid var(--gold);
+      box-shadow: 0 48px 96px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.2);
+    }
+    .photo-img-wrap img {
+      width: 100%; display: block;
+      filter: contrast(1.04) brightness(0.98);
+    }
+    .photo-badge {
+      position: absolute; bottom: -24px; left: 20px; right: 20px;
+      background: rgba(13,33,55,0.96);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 14px; padding: 18px 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    .photo-badge-name { color: #fff; font-weight: 700; font-size: 17px; }
+    .photo-badge-title { color: var(--gold); font-size: 13px; margin-top: 3px; }
+    .photo-badge-lic { color: rgba(255,255,255,0.35); font-size: 11px; margin-top: 5px; letter-spacing: 0.05em; }
+
+    /* ── STATS BAR ───────────────────────────────────── */
+    .stats-bar { background: var(--gold); padding: 44px 48px; }
+    .stats-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 800; color: var(--navy); line-height: 1;
+    }
+    .stat-label { color: var(--navy); font-size: 13px; font-weight: 600; opacity: 0.7; margin-top: 6px; letter-spacing: 0.04em; }
+
+    /* ── SECTION SHARED ──────────────────────────────── */
+    .section { padding: 96px 48px; }
+    .section-label {
+      color: var(--gold); font-size: 11px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 44px); color: var(--navy); line-height: 1.2;
+    }
+    .section-title.light { color: #fff; }
+
+    /* ── ABOUT ───────────────────────────────────────── */
+    .about-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: center;
+    }
+    .about-photo {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.14);
+      border: 3px solid var(--gold);
+    }
+    .about-photo img { width: 100%; display: block; }
+
+    .about-body { }
+    .about-bio { color: var(--muted); font-size: 17px; line-height: 1.85; margin: 20px 0 28px; }
+    .about-checks { display: flex; flex-direction: column; gap: 14px; }
+    .check-row { display: flex; align-items: flex-start; gap: 14px; font-size: 15px; color: var(--text); line-height: 1.5; }
+    .check-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      background: var(--gold); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 13px; font-weight: 800; margin-top: 1px;
+    }
+
+    /* ── SERVICES ────────────────────────────────────── */
+    .services { background: var(--off-white); }
+    .services-inner { max-width: 1180px; margin: 0 auto; }
+    .services-hd { text-align: center; margin-bottom: 56px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .service-card {
+      background: #fff; border-radius: 18px; padding: 36px 28px;
+      box-shadow: 0 4px 28px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--gold);
+      transition: transform 0.22s, box-shadow 0.22s;
+    }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.11); }
+    .svc-icon { font-size: 36px; margin-bottom: 18px; }
+    .svc-title { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 12px; }
+    .svc-desc { color: var(--muted); font-size: 15px; line-height: 1.75; }
+
+    /* ── TRANSACTIONS ────────────────────────────────── */
+    .transactions { background: var(--navy); }
+    .transactions-inner { max-width: 1180px; margin: 0 auto; }
+    .tx-hd { text-align: center; margin-bottom: 56px; }
+    .tx-hd .section-label { color: var(--gold); }
+    .tx-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .tx-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 26px 22px;
+      transition: background 0.2s;
+    }
+    .tx-card:hover { background: rgba(255,255,255,0.08); }
+    .tx-type { color: var(--gold); font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+    .tx-address { color: #fff; font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+    .tx-city { color: rgba(255,255,255,0.45); font-size: 14px; margin-bottom: 14px; }
+    .tx-price { color: var(--gold); font-size: 22px; font-weight: 700; }
+    .tx-status { color: rgba(255,255,255,0.3); font-size: 12px; margin-top: 4px; }
+
+    /* ── CTA SECTION ─────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, #183352 0%, #0D2137 60%, #081625 100%);
+      padding: 100px 48px; text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 54px); color: #fff; line-height: 1.18; margin-bottom: 20px;
+    }
+    .cta-title em { color: var(--gold); font-style: normal; }
+    .cta-sub { color: rgba(255,255,255,0.62); font-size: 18px; line-height: 1.75; margin-bottom: 40px; }
+    .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .cta-meta { color: rgba(255,255,255,0.35); font-size: 13px; }
+    .cta-meta a { color: var(--gold); text-decoration: none; }
+    .cta-meta a:hover { text-decoration: underline; }
+
+    /* ── MEDIA / PRESS ───────────────────────────────── */
+    .press { background: var(--off-white); }
+    .press-inner { max-width: 1180px; margin: 0 auto; }
+    .press-hd { text-align: center; margin-bottom: 48px; }
+    .press-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .press-card {
+      background: #fff; border-radius: 14px; padding: 28px 24px;
+      box-shadow: 0 3px 18px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--gold);
+    }
+    .press-amount { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--navy); font-weight: 700; margin-bottom: 6px; }
+    .press-desc { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: #060e18; padding: 44px 48px; text-align: center;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer-brand { color: var(--gold); font-size: 20px; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .footer-text { color: rgba(255,255,255,0.28); font-size: 13px; line-height: 1.9; }
+    .footer-text a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-text a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 960px) {
+      nav { padding: 12px 20px; }
+      .hero { padding: 90px 20px 64px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 56px; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero-photo-wrap { order: -1; }
+      .photo-card { width: 280px; }
+      .photo-badge { bottom: -20px; }
+
+      .stats-bar { padding: 36px 20px; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); gap: 28px; }
+
+      .section { padding: 64px 20px; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-photo { max-width: 360px; margin: 0 auto; }
+      .services-grid { grid-template-columns: 1fr; }
+      .tx-grid { grid-template-columns: 1fr; }
+      .press-grid { grid-template-columns: 1fr; }
+
+      .cta-section { padding: 72px 20px; }
+      footer { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-brand-name">INTERRA REALTY</span>
+    <span class="nav-brand-divider"></span>
+    <span class="nav-brand-sub">Patrick Kennelly</span>
+  </a>
+  <a href="tel:3127247011" class="nav-phone">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+    312.724.7011
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">Managing Partner · Interra Realty</div>
+      <h1 class="hero-title">Chicago's <em>Multifamily</em><br>Investment Expert</h1>
+      <p class="hero-sub">Patrick Kennelly delivers exceptional results for owners, developers, and investors in mid-market multifamily and mixed-use properties across Chicagoland — backed by market expertise, integrity, and relentless follow-through.</p>
+      <div class="hero-actions">
+        <a href="tel:3127247011" class="btn btn-gold">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+          Call Now: 312.724.7011
+        </a>
+        <a href="mailto:pkennelly@interrarealty.com" class="btn btn-outline">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Send Email
+        </a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          IL Broker #475.158260
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          $100M+ in Transactions
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Chicago Area Specialist
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="photo-card">
+        <div class="photo-img-wrap">
+          <img src="patrick-kennelly.jpg" alt="Patrick Kennelly – Managing Partner, Interra Realty">
+        </div>
+        <div class="photo-badge">
+          <div class="photo-badge-name">Patrick Kennelly</div>
+          <div class="photo-badge-title">Managing Partner, Interra Realty</div>
+          <div class="photo-badge-lic">IL Real Estate Broker #475.158260</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+    <div>
+      <div class="stat-num">$100M+</div>
+      <div class="stat-label">Transaction Volume</div>
+    </div>
+    <div>
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Units Sold</div>
+    </div>
+    <div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">Active Listings</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" style="background:#fff;">
+  <div class="about-inner">
+    <div class="about-photo">
+      <img src="patrick-kennelly.jpg" alt="Patrick Kennelly">
+    </div>
+    <div class="about-body">
+      <div class="section-label">About Patrick</div>
+      <h2 class="section-title">A Trusted Advisor for Chicago's Investment Community</h2>
+      <p class="about-bio">As Managing Partner at Interra Realty, Patrick Kennelly has built a reputation as one of Chicago's most respected multifamily brokers. With a background in financial services and a degree in Economics and Entrepreneurship from the University of Iowa, he brings analytical precision and entrepreneurial energy to every deal.</p>
+      <p class="about-bio">Patrick represents property owners, developers, lenders, and investors — consistently delivering results on mid-market multifamily and mixed-use assets throughout the Chicagoland region.</p>
+      <div class="about-checks">
+        <div class="check-row"><div class="check-icon">✓</div> Mid-market multifamily &amp; mixed-use specialist</div>
+        <div class="check-row"><div class="check-icon">✓</div> Deep Chicago-area submarket knowledge</div>
+        <div class="check-row"><div class="check-icon">✓</div> Represents owners, developers, lenders &amp; investors</div>
+        <div class="check-row"><div class="check-icon">✓</div> Former financial services industry background</div>
+        <div class="check-row"><div class="check-icon">✓</div> Economics &amp; Entrepreneurship – University of Iowa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services">
+  <div class="services-inner">
+    <div class="services-hd">
+      <div class="section-label">What I Do</div>
+      <h2 class="section-title">Comprehensive Investment Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-icon">🏢</div>
+        <div class="svc-title">Multifamily Sales</div>
+        <div class="svc-desc">Expert buy-side and sell-side representation for apartment buildings and multifamily assets across Chicago's city and suburban markets.</div>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">🏗️</div>
+        <div class="svc-title">Mixed-Use Properties</div>
+        <div class="svc-desc">Specialized brokerage for mixed-use assets combining residential and commercial components, with a focus on value-add opportunities.</div>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">📊</div>
+        <div class="svc-title">Investment Strategy</div>
+        <div class="svc-desc">Data-driven market analysis, investment underwriting, and portfolio strategy to help you make confident, well-informed decisions.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS / DEAL VOLUME -->
+<section class="section press">
+  <div class="press-inner">
+    <div class="press-hd">
+      <div class="section-label">Media &amp; Recognition</div>
+      <h2 class="section-title">Featured Transactions</h2>
+    </div>
+    <div class="press-grid">
+      <div class="press-card">
+        <div class="press-amount">$12.18M</div>
+        <div class="press-desc">Multifamily sale featured in Chicago-area real estate press — one of the region's top mid-market closings.</div>
+      </div>
+      <div class="press-card">
+        <div class="press-amount">$7M+</div>
+        <div class="press-desc">Multiple closed transactions in the $5M–$9M range across Naperville, Des Plaines, and suburban Chicago markets.</div>
+      </div>
+      <div class="press-card">
+        <div class="press-amount">$2.55M+</div>
+        <div class="press-desc">Consistent deal flow across all price points — from value-add suburban buys to core urban multifamily assets.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVE LISTINGS -->
+<section class="section transactions">
+  <div class="transactions-inner">
+    <div class="tx-hd">
+      <div class="section-label">Current Opportunities</div>
+      <h2 class="section-title light">Active Listings</h2>
+    </div>
+    <div class="tx-grid">
+      <div class="tx-card">
+        <div class="tx-type">Mixed-Use · For Sale</div>
+        <div class="tx-address">15524 S. Cicero Avenue</div>
+        <div class="tx-city">Oak Forest, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-type">Multifamily · For Sale</div>
+        <div class="tx-address">409 S. Maple Avenue</div>
+        <div class="tx-city">Oak Park, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-type">Multifamily · For Sale</div>
+        <div class="tx-address">7827 W. North Avenue</div>
+        <div class="tx-city">River Forest, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-type">Multifamily · For Sale</div>
+        <div class="tx-address">2337 John Rolfe Drive</div>
+        <div class="tx-city">Schaumburg, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-type">Multifamily · For Sale</div>
+        <div class="tx-address">1010 South 1st Avenue</div>
+        <div class="tx-city">Maywood, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+      <div class="tx-card">
+        <div class="tx-type">Mixed-Use · For Sale</div>
+        <div class="tx-address">345 N. Laverne Avenue</div>
+        <div class="tx-city">Hillside, IL</div>
+        <div class="tx-price">Contact for Price</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-label">Ready to Move?</div>
+    <h2 class="cta-title">Let's Talk About Your <em>Next Deal</em></h2>
+    <p class="cta-sub">Whether you're buying, selling, or exploring Chicago multifamily for the first time — Patrick brings the market knowledge, the network, and the persistence to make it happen.</p>
+    <div class="cta-btns">
+      <a href="tel:3127247011" class="btn btn-gold" style="font-size:17px; padding:18px 40px;">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 7V5z"/></svg>
+        Call 312.724.7011
+      </a>
+      <a href="mailto:pkennelly@interrarealty.com" class="btn btn-outline" style="font-size:17px; padding:18px 40px;">
+        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Send Email
+      </a>
+    </div>
+    <div class="cta-meta">
+      350 N. Clark Street, Suite 500, Chicago IL 60654 &nbsp;·&nbsp;
+      <a href="https://interrarealty.com" target="_blank" rel="noopener">interrarealty.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">INTERRA REALTY</div>
+  <p class="footer-text">
+    Patrick Kennelly · Managing Partner · IL Real Estate Broker #475.158260<br>
+    350 N. Clark Street, Suite 500, Chicago, IL 60654<br>
+    <a href="tel:3127247011">312.724.7011</a> &nbsp;·&nbsp; <a href="mailto:pkennelly@interrarealty.com">pkennelly@interrarealty.com</a><br><br>
+    &copy; 2025 Interra Realty. All rights reserved.
+  </p>
+</footer>
+
+<!-- ZADARMA CALLBACK WIDGET -->
+<script type="text/javascript">
+var ZCallbackWidgetLinkId  = '9520fc0449ac4139d04360574a997e3c';
+var ZCallbackWidgetDomain  = 'my.zadarma.com';
+(function(){
+  var lt = document.createElement('script');
+  lt.type = 'text/javascript';
+  lt.charset = 'utf-8';
+  lt.async = true;
+  lt.src = 'https://' + ZCallbackWidgetDomain + '/callbackWidget/js/main.min.js?v=1.15.4';
+  var sc = document.getElementsByTagName('script')[0];
+  if (sc) sc.parentNode.insertBefore(lt, sc);
+  else document.documentElement.firstChild.appendChild(lt);
+})();
+</script>
+
+</body>
+</html>
