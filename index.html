@@ -9,22 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
-  <!-- Zadarma Callback Widget — loaded early so it's ready when buttons are clicked -->
+  <!-- Helper to trigger Zadarma dialog from buttons -->
   <script type="text/javascript">
-    var ZCallbackWidgetLinkId = '174bb691b4d88a730d18b4b14d6e422c';
-    var ZCallbackWidgetDomain = 'my.zadarma.com';
-    (function(){
-      var lt = document.createElement('script');
-      lt.type = 'text/javascript';
-      lt.charset = 'utf-8';
-      lt.async = true;
-      lt.src = 'https://' + ZCallbackWidgetDomain + '/callbackWidget/js/main.min.js?v=1.15.4';
-      var sc = document.getElementsByTagName('script')[0];
-      if (sc) sc.parentNode.insertBefore(lt, sc);
-      else document.documentElement.firstChild.appendChild(lt);
-    })();
-
-    // Helper — waits for ZCallbackWidget to finish initializing then opens the dialog
     function openCallbackWidget() {
       var attempts = 0;
       var wait = setInterval(function() {
@@ -33,7 +19,6 @@
           clearInterval(wait);
           ZCallbackWidget.showCallbackDialog();
         } else if (attempts > 40) {
-          // fallback: just call the phone number directly
           clearInterval(wait);
           window.location.href = 'tel:3127247011';
         }
@@ -571,5 +556,8 @@
 </footer>
 
 
+
+<!-- Zadarma Callback Widget — exact embed code as provided -->
+<script type="text/javascript">var ZCallbackWidgetLinkId  = '174bb691b4d88a730d18b4b14d6e422c';var ZCallbackWidgetDomain  = 'my.zadarma.com';(function(){    var lt = document.createElement('script');    lt.type ='text/javascript';    lt.charset = 'utf-8';    lt.async = true;    lt.src = 'https://' + ZCallbackWidgetDomain + '/callbackWidget/js/main.min.js?v=1.15.4';    var sc = document.getElementsByTagName('script')[0];    if (sc) sc.parentNode.insertBefore(lt, sc);    else document.documentElement.firstChild.appendChild(lt);})();</script>
 </body>
 </html>
